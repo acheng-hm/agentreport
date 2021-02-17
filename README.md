@@ -29,7 +29,6 @@ Matcha's agent-fn logs the member state on read and write like this:
 
 ## Usage
 
-FIXME: explanation
 
     $ lein run [path to matcha's app.log] [path to APPEND report]
 
