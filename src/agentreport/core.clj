@@ -40,10 +40,10 @@
       (cond
         (not(contains? acc :state)) (log out (assoc parsed-event :note "INITIAL STATE"))
         (and (nil? loss) (nil? gain)) (log out (-> parsed-event
-                                                   (dissoc :state)
+                                                   (dissoc :state :trace)
                                                    (update :meta #(str % "NO CHANGE IN STATE"))))
         (only-updated-time-changed? loss gain) (log out (-> parsed-event
-                                                            (dissoc :state)
+                                                            (dissoc :state :trace)
                                                             (update :meta  #(str % "new updated time:" (:updated-time gain)))))
         :else (log out (assoc parsed-event :---loss--- loss :---gain--- gain)))
       parsed-event)))
